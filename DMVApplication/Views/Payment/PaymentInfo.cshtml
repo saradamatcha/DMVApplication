@@ -1,0 +1,36 @@
+﻿@model DMVApplication.Models.PaymentDetails
+@{
+    ViewBag.Title = "PaymentInfo";
+}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<h2>Payment Information</h2>
+
+<div>
+    @using (Html.BeginForm("PaymentSubmit", "Payment", FormMethod.Post))
+    {
+    <h6> Licence ID: @Html.LabelFor(model => model.LicenceID, (string)@ViewBag.LicenceID)</h6>
+         
+     
+        <h6>
+            Credit Card :   @Html.TextBoxFor(m => m.CreditCardID, new { value = Model.CreditCardID })
+            @Html.ValidationMessageFor(x => x.CreditCardID)
+
+        </h6>
+        <h6>
+            Card Holder Name:  @Html.TextBoxFor(m => m.CardHolderName)
+            @Html.ValidationMessageFor(x => x.CardHolderName)
+        </h6>
+        <h6>
+            Expiration:  @Html.TextBoxFor(m => m.ExpirateDate)
+            @Html.ValidationMessageFor(x => x.ExpirateDate)
+        </h6>
+
+        <input id="btnSubmit" type="submit" name="Submit" /> <br />
+    }
+</div>
+
+

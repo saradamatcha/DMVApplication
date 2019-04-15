@@ -1,0 +1,27 @@
+﻿@model DMVApplication.Models.DriversDetails
+@{
+    ViewBag.Title = "Payment";
+}
+
+
+<div>
+    <h5>Driver's Details :</h5>
+    <h6> Driver's First Name : @Model.DriverFirstName </h6>
+    <h6> Driver's Last Name  : @Model.DriverLastName </h6>
+    <h6> Driver's Licence ID : @Model.LicenceID </h6>
+    <h6> Expiried Date       : @Model.ExpirateDate </h6>
+</div>
+
+
+<div>
+    @using (Html.BeginForm("Payment", "Payment", FormMethod.Post))
+    {
+        @Html.HiddenFor(Model => Model.LicenceID)
+        <h6> Do you want to continue </h6>
+        <input id="btnPayment" type="submit" name="Payment" /> <br />
+
+    }
+</div>
+
+
+

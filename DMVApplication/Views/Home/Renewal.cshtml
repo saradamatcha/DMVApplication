@@ -1,0 +1,28 @@
+﻿@model DMVApplication.Models.DriversDetails
+@{
+    ViewBag.Title = "Renewal";
+}
+<h3>@ViewBag.Message</h3>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<div>
+    @using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+    {
+    <h5>
+        Drivers Licence ID :  @Html.TextBoxFor(m => m.LicenceID)
+        @Html.ValidationMessageFor(x => x.LicenceID)
+    </h5>
+    <h5>
+        Driver First Name :  @Html.TextBoxFor(m => m.DriverFirstName)
+        @Html.ValidationMessageFor(x => x.DriverFirstName)
+    </h5>
+        <input id="btnSubmit" type="submit" name="Submit" /> <br />
+    }
+</div>
+
+
+<div>
+    @Html.ValidationMessageFor(m => m.ExpirateDate)
+    @Html.ValidationMessageFor(m => m.DriverLastName)
+</div>
